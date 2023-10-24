@@ -45,15 +45,15 @@ Warning: Setting the autosave interval value too low will cause all sorts of iss
 
 3. 	create new file
 	
-     `vim /etc/init.d/S99_custom_save_before_shutdown`
+     `vim /etc/init.d/S99_custom_autosave_300s`
 
-4.	insert the whole content of the file `S99_custom_save_before_shutdown` inside this repository
+4.	insert the whole content of the file `S99_custom_autosave_300s` inside this repository
 
 5.	save and exit file
 
 6. 	make file executable
 	
-     `chmod 755 /etc/init.d/S99_custom_save_before_shutdown`
+     `chmod 755 /etc/init.d/S99_custom_autosave_300s`
 
 7. 	ENJOY! ;-)
 
