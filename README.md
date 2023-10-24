@@ -1,8 +1,7 @@
-# Retroflag-GPI-CASE-2-Recalbox-scripts
+# Retroflag GPi CASE 2 - Recalbox scripts
 Helper scripts for Retroflag GPI CASE 2 running Recalbox
 
-
-## Retroflag GPI CASE 2 - Save before shutdown script
+## Save before shutdown script
 This script will save the current game and stops the emulator (RetroArch) before the system powers off.
 So no more accidential loss of the game state. ;-)
  
@@ -25,7 +24,11 @@ So no more accidential loss of the game state. ;-)
 
 7. 	ENJOY! ;-)
 
+### Test info
+Tested on Retroflag GPi CASE 2 with Raspberry Pi Compute Module 4, 4GB RAM, Lite.
+OS: Recalbox 9.1
+
 
 # Additional links to the docs used in the scripts
 - RetroArch Network Control Interface documentation: https://docs.libretro.com/development/retroarch/network-control-interface/
--	Login via SSH to Recalbox: https://wiki.recalbox.com/en/tutorials/system/access/root-access-terminal-cli
+- Login via SSH to Recalbox: https://wiki.recalbox.com/en/tutorials/system/access/root-access-terminal-cli
