@@ -25,8 +25,15 @@ So no more accidential loss of the game state. ;-)
 6. 	make file executable
     
 	`chmod 755 /etc/init.d/S99_custom_save_before_shutdown`
+7.	reboot
 
-7. ENJOY! ;-)
+8. ENJOY! ;-)
+
+### Uninstall
+1. connect with ssh to your recallbox
+2. remount filesystem for writing: `mount -o remount, rw /
+3. rm /etc/init.d/S99_custom_save_before_shutdown
+4. reboot
 
 ## Autosave script
 This script will save the current game (RetroArch, e.g. GameBoyColor) every 300 seconds (5 minutes).
@@ -54,8 +61,15 @@ Warning: Setting the autosave interval value too low will cause all sorts of iss
 6. 	make file executable
 	
      `chmod 755 /etc/init.d/S99_custom_autosave_300s`
+7.	reboot
 
-7. 	ENJOY! ;-)
+8. 	ENJOY! ;-)
+
+### Uninstall
+1. connect with ssh to your recallbox
+2. remount filesystem for writing: `mount -o remount, rw /
+3. rm /etc/init.d/S99_custom_autosave_300s
+4. reboot
 
 # Test info
 Tested on the following System:
