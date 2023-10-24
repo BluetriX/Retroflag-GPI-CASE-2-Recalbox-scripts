@@ -7,20 +7,20 @@
 # 
 # INSTALLATION
 # 1. 	connect with ssh to your recallbox (ip can befound in the main menu -> network settings) e.g. ssh root@192.168.1.10
-# 		default password: recalboxroot 
+# 	default password: recalboxroot 
 #
-#	2. 	remount filesystem for writing:
-#			mount -o remount, rw /
+#2. 	remount filesystem for writing:
+#	mount -o remount, rw /
 #
 # 3. 	create new file
-#			vim /etc/init.d/S99_custom_save_before_shutdown
+#	vim /etc/init.d/S99_custom_save_before_shutdown
 #
-#	4.	insert the whole content of this file
+# 4.	insert the whole content of this file
 #
 # 5.	save and exit file
 #
 # 6. 	make file executable
-#			chmod 755 /etc/init.d/S99_custom_save_before_shutdown
+#	chmod 755 /etc/init.d/S99_custom_save_before_shutdown
 #
 # 7. 	ENJOY! ;-)
 #
@@ -30,17 +30,23 @@ start() {
 }
 
 stop() {	# will be executed when the system shuts down
-	# increase save slot
-	echo -n "STATE_SLOT_PLUS" > /dev/udp/127.0.0.1/55355
-	sleep 1 # let emulator some time
+	process_name="retroarch"
+	# check if retroarch is running
+	if pgrep -x "$process_name" >/dev/null; then
+    		# retroarch process exists so do save and exit
 
-	# explicitly save game (not needed if "savestate_auto_save = true" in your config)
-	echo -n "SAVE_STATE" > /dev/udp/127.0.0.1/55355
-	sleep 1	# let emulator some save time
+		# increase save slot
+		echo -n "STATE_SLOT_PLUS" > /dev/udp/127.0.0.1/55355
+		sleep 1 # let emulator some time
 
-	# stop emulator
-	echo -n "QUIT" > /dev/udp/127.0.0.1/55355
-	sleep 2	# Wait 1 second so the emulator has time to stop
+		# explicitly save game (not needed if "savestate_auto_save = true" in your config)
+		echo -n "SAVE_STATE" > /dev/udp/127.0.0.1/55355
+		sleep 1	# let emulator some save time
+
+		# stop emulator
+		echo -n "QUIT" > /dev/udp/127.0.0.1/55355
+		sleep 2	# Wait 1 second so the emulator has time to stop
+	fi
 }
 
 case "$1" in
